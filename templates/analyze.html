@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deepfake Analysis</title>
+    <link rel="stylesheet" href="analyze-style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="{{ url_for('static', filename='analyze.js') }}"></script>
+</head>
+<body>
+    <div class="analysis-container">
+        <h2>Deepfake Analysis in Progress...</h2>
+
+        <div class="graph-container">
+            <h3>Multi-attentional Analysis</h3>
+            <canvas id="multiAttentionalAnalysisChart"></canvas>
+        </div>
+
+        <div class="graph-container">
+            <h3>Frequency Domain Analysis</h3>
+            <canvas id="frequencyDomainAnalysisChart"></canvas>
+        </div>
+
+        <div class="progress-container">
+            <div id="progress-bar"></div>
+        </div>
+        <span id="percentage">0%</span>
+
+        <script src="analyze.js"></script>
+        
+        <div id="button-container"></div>
+    </div>
+</body>
+</html>
