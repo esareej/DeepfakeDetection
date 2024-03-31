@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Deepfake Detector</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="main-container">
+        <h1>Deepfake Detector</h1>
+        <p class="description">Upload your media to detect any possible DeepFakes!</p>
+        <form action="/" method="post" enctype="multipart/form-data">
+            <label for="file-input" class="upload-button">Choose file</label>
+            <input id="file-input" type="file" name="file" accept=".mp4,.avi,.mov,.mkv" style="display:none;">
+            <span id="file-chosen">No file chosen</span>
+            <button type="submit" id="upload-button" disabled>Upload</button>
+        </form>
+        <div>
+            <input type="checkbox" id="terms-checkbox">
+            <label for="terms-checkbox">By submitting data, you are agreeing to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>.</label>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='main.js') }}"></script>
+</body>
+</html>
