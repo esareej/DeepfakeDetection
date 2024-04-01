@@ -38,7 +38,7 @@ def upload_file():
 
 def process_video(video_path):
     # Load the saved model
-    clf = load('deepfake_detection_model2.joblib')
+    clf = load('deepfake_detection_model.joblib')
 
     # Extract face frames from the video
     face_frames = extract_face_frames(video_path, max_frames=15)
