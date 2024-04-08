@@ -1,0 +1,439 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background: #fdfdfb; /* Updated background color to white */
+    min-height: 100vh;
+}
+
+.top-color-bar {
+    background-color: #0d1b2a;
+    height: 100px; /* Adjust the height as needed */
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 2; /* Make sure this z-index is higher than the sidenav's but lower than the overlay's */
+    display: flex; /* Added to align items within the bar */
+    align-items: center; /* Center the title vertically */
+    justify-content: space-between; /* Align the title to the left */
+    padding: 0 20px; /* Same as the sidebar width, to align the title with the sidebar content */
+}
+
+.lobster-regular {
+    font-family: "Lobster", sans-serif;
+    font-size: 34px; /* Adjust the size as needed */
+    padding-left: 20px; /* Increase left padding to move content to the right */
+    padding-top: 20px;
+    color: white;
+    margin: 0;
+}
+
+.lobster-regular a {
+    color: white; /* Sets the color of the link text to white */
+    text-decoration: none; /* Removes the underline from the link */
+}
+
+/* Add hover effect if needed */
+.lobster-regular a:hover {
+    text-decoration: none; /* Ensures the underline doesn't appear on hover */
+    color: white; /* Optional: Change color on hover if needed */
+}
+
+
+/* The sidebar styles */
+.sidenav {
+    height: calc(100% - 100px); /* Reduced the height to not overlap with the top bar */
+    width: 320px;
+    font-size: 18px;
+    position: fixed;
+    z-index: 1;
+    padding-left: 20px; /* Increase left padding to move content to the right */
+    padding-top: 20px;
+    top: 100px; /* Offset by the height of the top bar */
+    left: 0;
+    background-color: #0d1b2a;
+    overflow-x: hidden;
+    padding-top: 20px;
+    box-sizing: border-box;
+}
+
+.sidenav a {
+    padding: 25px 30px;
+    text-decoration: none;
+    color: white;
+    display: block;
+}
+
+.sidenav a i {
+    margin-right: 20px; /* Adjust the space between the icon and text */
+}
+
+/* Container for the sign-out button */
+.sign-out-container {
+    position: absolute;
+    bottom: 20px; /* Keep the button at a fixed distance from the bottom */
+    left: 40px; /* Decrease left position to extend the container more to the left */
+    right: 40px; /* Add a right position to extend the container more to the right */
+    display: flex;
+    justify-content: center; /* Center the button horizontally */
+}
+
+/* Sign Out Button Style */
+.sign-out-btn {
+    background-color: #fff;
+    color: #2c3e50;
+    border-radius: 20px; /* Rounded corners */
+    border: none;
+    padding: 25px 25px; /* Padding inside the button */
+    font-size: 16px;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s;
+    width: 100%; /* Make the button fill the container */
+    /* The margin-left property is removed since width is now 100% */
+}
+
+.sign-out-btn i {
+    margin-right: 8px;
+}
+
+.sign-out-btn:hover {
+    background-color: #e1e1e1;
+}
+
+/* Overlay styles */
+.overlay {
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    z-index: 1; /* Make sure it's below the sidenav but above everything else */
+    left: 0;
+    top: 0;
+    background-color: rgba(0,0,0, 0.5); /* Black color with opacity */
+    overflow-x: hidden; /* Prevents horizontal scroll */
+    transition: 0.5s; /* Transition effect */
+    display: none; /* Hide by default */
+  }
+  
+  /* When overlay is active, we'll change its display to block */
+  .overlay.active {
+    display: block;
+  }
+  
+
+
+.header {
+    background-color: #fff; /* Matches the site's color scheme */
+    text-align: center;
+    font-size: 20px;
+    padding: 20px 0; /* Adjust padding as needed */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Subtle shadow for depth */
+    margin-bottom: 20px; /* Space between header and main content */
+}
+
+.header a {
+    text-decoration: none; /* Removes underline from the link */
+    color: inherit; /* Keeps the color the same as the parent element, preventing color change */
+}
+
+.header a:hover, .header a:active, .header a:visited {
+    text-decoration: none; /* Removes underline on hover, active, and visited states */
+    color: inherit; /* Prevents color change on hover, active, and visited states */
+}
+
+
+.footer-item {
+    margin: 20px 0; /* Increased margin for more space */
+}
+
+.footer-item a {
+    color: #e1e1e1; /* Darker text for contrast and readability */
+    text-decoration: none; /* Removes underline from links */
+    font-size: 15px; /* Adjust as needed */
+    padding: 10px; /* Adds padding for better touch target size */
+}
+
+
+.main-container {
+    position: relative; /* Adjust position to be relative */
+    margin-left: 350px; /* Sidebar width */
+    margin-right: 25px; /* Right margin for some spacing */
+    margin-top: 130px; /* Increase this value to move container further down */
+    padding: 40px 60px; /* Padding inside the container */
+    background-color: #fff; /* Background color */
+    border-radius: 20px; /* Rounded corners */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* Shadow effect */
+    display: flex; /* Use flexbox for centering content */
+    flex-direction: column; /* Stack children vertically */
+    align-items: center; /* Center children horizontally */
+    justify-content: center; /* Center children vertically */
+    width: auto; /* Width to auto so it adjusts based on the content */
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
+
+.main-container-analyze {
+    text-align: center;
+    position: relative; /* Adjust position to be relative */
+    margin-left: 350px; /* Sidebar width */
+    margin-right: 25px; /* Right margin for some spacing */
+    margin-top: 50px; /* Increase this value to move container further down */
+    padding: 40px 60px; /* Padding inside the container */
+    background-color: #fff; /* Background color */
+    border-radius: 20px; /* Rounded corners */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* Shadow effect */
+    transition: transform 0.3s ease-in-out;
+    display: flex; /* Use flexbox for centering content */
+    flex-direction: column; /* Stack children vertically */
+    align-items: center; /* Center children horizontally */
+    justify-content: center; /* Center children vertically */
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
+
+/* To center the text inside buttons and checkbox labels */
+.upload-button, #upload-button, .terms label {
+    text-align: center; /* Center text inside elements */
+}
+
+/* Ensure the file input and checkbox are not taking full width */
+#file-input, #terms-checkbox {
+    width: initial;
+}
+
+/* Adjust the layout for the terms checkbox and label */
+.terms {
+    display: flex;
+    justify-content: center; /* Center checkbox and label */
+    align-items: center; /* Align them vertically */
+}
+
+/* Remove the fixed margin on the left side */
+#file-chosen {
+    margin: 10px auto; /* Center the 'No file chosen' text */
+}
+
+
+
+
+/* Styling for headings, buttons, and other elements */
+h1 {
+    color: #333;
+    margin-bottom: 8px;
+}
+
+.description {
+    color: #333;
+    font-size: 25px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.upload-button, #upload-button {
+    background-color: #1b263b;
+    color: white;
+    padding: 12px 24px;
+    margin: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.upload-button:hover, #upload-button:hover {
+    background-color: #778da9;
+}
+
+#file-chosen {
+    display: block;
+    margin: 10px 0;
+    color: #666;
+}
+
+.brand-name {
+    font-size: 25px; /* Makes the text larger */
+    font-weight: bold; /* Makes the text bold */
+    color: #778da9; /* Adjusts the color if needed, matching other footer links for consistency */
+}
+
+/* Contact us */
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group textarea {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px; /* Adds space below each input */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* analyze page */
+.graph-container {
+    background: #f8f9fa;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    margin-top: 30px;
+}
+
+.graph-container h3 {
+    color: #333;
+    margin: 0 0 20px 0;
+    font-size: 22px;
+}
+
+.graph {
+    width: 100%;
+    border-radius: 5px;
+}
+
+.progress-container {
+    background: #e2e8f0;
+    border-radius: 20px;
+    padding: 5px;
+    margin: 30px 0;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+#progress-bar {
+    background-color: #778da9;
+    height: 30px;
+    border-radius: 15px;
+    width: 0%;
+    transition: width 1s ease;
+    position: relative;
+    text-align: center; /* Center text horizontally */
+}
+
+#progress-bar span {
+    color: #fff;
+    font-weight: bold;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.custom-result-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    border: none;
+    background-color: #0d1b2a; 
+    color: white;
+    transition: background-color 0.3s;
+}
+
+.custom-result-button:hover {
+    background-color: #5a6f8c; /* Darker shade for hover */
+}
+
+/* result page */
+.results-container {
+    text-align: center;
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.media-section, .result-section {
+    margin-bottom: 30px;
+}
+
+.uploaded-media {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.media-info h2, .result-section h2 {
+    margin: 20px 0;
+    color: #4a5568;
+}
+
+.result-grid {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-bottom: 20px;
+}
+
+.result-item {
+    background: #f7fafc;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.result-title {
+    display: block;
+    color: #718096;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.result-value {
+    color: #2d3748;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.final-result {
+    font-size: 20px;
+    color: #000;
+    font-weight: bold;
+}
+
+.final-result .result-value {
+    color: #e53e3e; /* Change color based on result (e.g., green for 'Real', red for 'Fake') */
+}
+
+#back-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    border: none;
+    background-color: #0b1723;
+    color: white;
+    width: auto; /* Or you can specify a fixed width, e.g., width: 200px; */
+    display: inline-block;
+}
+
+#back-button:hover {
+    background-color: #778da9; /* A slightly darker shade for the hover effect */
+}
+
+.upload-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.file-upload {
+    margin-bottom: 20px;
+}
+
+#file-chosen {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #666;
+}
