@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Deepfake Detector</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+    <div class="top-color-bar">
+        <h1 class="lobster-regular"><a href="{{ url_for('home') }}">Deepfake Detector.</a></h1>
+    </div>
+    
+    <div class="sidenav">
+        <a href="{{ url_for('home') }}">Dashboard</a>
+        <a href="{{ url_for('about') }}">About Us</a>
+        <a href="{{ url_for('contact') }}">Contact Us</a>
+        <a href="{{ url_for('terms') }}"><i class="fas fa-file-contract"></i> Terms of Service</a>
+        <a href="{{ url_for('privacy') }}"><i class="fas fa-shield-alt"></i> Privacy Policy</a>
+    </div>
+
+    <div class="main-container">
+        <h1>About Us</h1>
+        <div class="content">
+            <p>Welcome to the Deepfake Detector, your frontline tool in the battle against digital deception. In an era where seeing no longer means believing, we provide a shield against the wave of misinformation brought on by deepfake technology.</p>
+            <p>Our team of cybersecurity buffs, AI wizards, and forensic maestros has crafted a platform that is both powerful and easy to use. We employ cutting-edge techniques to scrutinize images and videos, helping you discern truth from digitally altered fiction.</p>
+            
+            <h2>How Our Deepfake Detection Works</h2>
+            <p>At the heart of our system lies a blend of sophisticated methods that analyze media in ways similar to a detective scrutinizing clues:</p>
+            <ul>
+                <p><strong>Texture Analysis:</strong> Just like studying the brush strokes on a painting, we examine the fine details of textures in a video frame to spot inconsistencies that often go unnoticed to the naked eye.</p>
+                <p><strong>Frequency Analysis:</strong> This is akin to listening to a symphony and picking out the wrong notes. We analyze the 'sound'—or signal—that pictures and videos are made of, detecting any abnormal 'tunes' that suggest manipulation.</p>
+                <p><strong>Face Detection:</strong> Identifying and focusing on faces within media, much like a sketch artist, allows us to concentrate our analysis on the most crucial and commonly manipulated areas in videos.</p>
+                <p><strong>Machine Learning:</strong> By feeding our system a diet of real and fake content, it learns to spot the telltale signs of fakes — a process reminiscent of training a detective to spot the signs of a counterfeit.</p>
+            </ul>
+            <p>We've designed Deepfake Detector to demystify the complex technology behind deepfake detection. By distilling our methods into a simple upload-and-detect interface, we empower everyday internet users to defend against digital duplicity with just a few clicks.</p>
+            
+            <p>Join us on our mission to restore trust in digital media. Together, we can turn the tide against the deepfake deluge.</p>
+            <p>If you have any questions or ideas, or if you want to get involved, please <a href="contact_us.html">reach out to us</a>. We're always eager to connect!</p>
+        </div>
+    </div>
+
+    <script src="/static/main.js"></script>
+</body>
+</html>
