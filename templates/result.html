@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deepfake Detection Results</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        .visualization-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+        .back-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #000;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+        .back-button:hover {
+            background-color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="top-color-bar">
+        <h1 class="lobster-regular"><a href="{{ url_for('home') }}">Deepfake Detector.</a></h1>
+    </div>
+    
+    <div class="sidenav">
+        <a href="{{ url_for('home') }}">Dashboard</a>
+        <a href="{{ url_for('about') }}">About Us</a>
+        <a href="{{ url_for('contact') }}">Contact Us</a>
+        <a href="{{ url_for('terms') }}"><i class="fas fa-file-contract"></i> Terms of Service</a>
+        <a href="{{ url_for('privacy') }}"><i class="fas fa-shield-alt"></i> Privacy Policy</a>
+    </div>
+
+    <div class="main-container">
+        <h1>Deepfake Detector Results</h1>
+        <div class="content">
+            <div class="result-section">
+                <div class="result-grid">
+                    <div class="result-item">
+                        <span class="result-title">Final Result</span>
+                        <span id="final-result-value" class="result-value">{{ result }}</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-title">Uncertainty Score</span>
+                        <span id="score" class="result-value">{{ confidence }}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="visualization-grid">
+                <div class="media-section">
+                    <div class="media-info">
+                        <h2>Texture Features</h2>
+                    </div>
+                    <img src="{{ url_for('static', filename='graphs/texture_features.png') }}" alt="Texture Features" class="uploaded-media">
+                </div>
+                <div class="media-section">
+                    <div class="media-info">
+                        <h2>Frequency Features</h2>
+                    </div>
+                    <img src="{{ url_for('static', filename='graphs/frequency_features.png') }}" alt="Frequency Features" class="uploaded-media">
+                </div>
+                <div class="media-section">
+                    <div class="media-info">
+                        <h2>LBP Features</h2>
+                    </div>
+                    <img src="{{ url_for('static', filename='graphs/lbp_features.png') }}" alt="LBP Features" class="uploaded-media">
+                </div>
+                <div class="media-section">
+                    <div class="media-info">
+                        <h2>Gabor Features</h2>
+                    </div>
+                    <img src="{{ url_for('static', filename='graphs/gabor_features.png') }}" alt="Gabor Features" class="uploaded-media">
+                </div>
+            </div>
+        </div>
+        <div class="back-button-container">
+            <a href="{{ url_for('home') }}" class="back-button">Back to Main</a>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='result.js') }}"></script>
+</body>
+</html>
