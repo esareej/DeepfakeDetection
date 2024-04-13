@@ -25,19 +25,18 @@ def terms():
 def privacy():
     return render_template('privacy_policy.html')
 
-@app.route('/thank-you')
+@app.route('/thank-you', methods=['GET', 'POST'])
 def thank_you():
-    return render_template('thank_you.html')
-
-@app.route('/contact', methods=['GET', 'POST'])
-def contact():
     if request.method == 'POST':
-        # Process the form submission
+        # Process the form submission (optional)
         name = request.form['name']
         email = request.form['email']
         message = request.form['message']
-        # You can perform further actions with the form data here
-        return redirect(url_for('thank_you'))
+        # You can perform any additional actions with the form data here
+    return render_template('thank_you.html')
+
+@app.route('/contact', methods=['GET'])
+def contact():
     return render_template('contact_us.html')
 
 @app.route('/upload', methods=['POST'])
