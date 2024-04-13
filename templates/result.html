@@ -13,7 +13,28 @@
         .visualization-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
+            gap: 30px;
+            margin-top: 40px;
+        }
+        .visualization-item {
+            background-color: #f5f5f5;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .visualization-item img {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 10px;
+        }
+        .visualization-item h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+        .visualization-item p {
+            font-size: 14px;
+            color: #666;
         }
         .back-button {
             display: inline-block;
@@ -23,6 +44,7 @@
             text-decoration: none;
             border-radius: 4px;
             transition: background-color 0.3s ease;
+            margin-top: 40px;
         }
         .back-button:hover {
             background-color: #333;
@@ -52,35 +74,31 @@
                         <span id="final-result-value" class="result-value">{{ result }}</span>
                     </div>
                     <div class="result-item">
-                        <span class="result-title">Confidence Score</span>
-                        <span id="score" class="result-value">{{ confidence }}</span>
+                        <span class="result-title">Confidence</span>
+                        <span id="score" class="result-value">{{ confidence }}%</span>
                     </div>
                 </div>
             </div>
             <div class="visualization-grid">
-                <div class="media-section">
-                    <div class="media-info">
-                        <h2>Texture Features</h2>
-                    </div>
-                    <img src="{{ url_for('static', filename='graphs/texture_features.png') }}" alt="Texture Features" class="uploaded-media">
+                <div class="visualization-item">
+                    <h3>Sobel Edge Detection</h3>
+                    <img src="{{ url_for('static', filename='graphs/texture_features.png') }}" alt="Sobel Edge Detection">
+                    <p>Sobel edge detection highlights areas with sharp changes in pixel intensity, indicating the presence of edges. Abnormal or inconsistent edge patterns may suggest manipulations or artifacts introduced during the deepfake generation process.</p>
                 </div>
-                <div class="media-section">
-                    <div class="media-info">
-                        <h2>Frequency Features</h2>
-                    </div>
-                    <img src="{{ url_for('static', filename='graphs/frequency_features.png') }}" alt="Frequency Features" class="uploaded-media">
+                <div class="visualization-item">
+                    <h3>Frequency Visualization</h3>
+                    <img src="{{ url_for('static', filename='graphs/frequency_features.png') }}" alt="Frequency Visualization">
+                    <p>Frequency visualization reveals the distribution of frequency components in the image. Anomalies or inconsistencies in the frequency domain can indicate the presence of deepfake manipulations, as the generation process may introduce artifacts or unnatural frequency patterns.</p>
                 </div>
-                <div class="media-section">
-                    <div class="media-info">
-                        <h2>LBP Features</h2>
-                    </div>
-                    <img src="{{ url_for('static', filename='graphs/lbp_features.png') }}" alt="LBP Features" class="uploaded-media">
+                <div class="visualization-item">
+                    <h3>Local Binary Patterns (LBP) Features</h3>
+                    <img src="{{ url_for('static', filename='graphs/lbp_features.png') }}" alt="LBP Features">
+                    <p>Local Binary Patterns (LBP) capture local texture patterns in the image. LBP features can help identify micro-patterns and textures that may be indicative of deepfake manipulations, as the synthesis process can introduce subtle irregularities or inconsistencies in the local texture patterns.</p>
                 </div>
-                <div class="media-section">
-                    <div class="media-info">
-                        <h2>Gabor Features</h2>
-                    </div>
-                    <img src="{{ url_for('static', filename='graphs/gabor_features.png') }}" alt="Gabor Features" class="uploaded-media">
+                <div class="visualization-item">
+                    <h3>Gabor Features</h3>
+                    <img src="{{ url_for('static', filename='graphs/gabor_features.png') }}" alt="Gabor Features">
+                    <p>Gabor features capture oriented frequency information and are sensitive to specific patterns and textures. They can help identify discrepancies or anomalies in the texture and orientation patterns that may arise from the deepfake generation process.</p>
                 </div>
             </div>
         </div>
