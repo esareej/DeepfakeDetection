@@ -21,8 +21,8 @@
         <a href="{{ url_for('home') }}">Dashboard</a>
         <a href="{{ url_for('about') }}">About Us</a>
         <a href="{{ url_for('contact') }}">Contact Us</a>
-        <a href="{{ url_for('static', filename='terms_of_service.html') }}"><i class="fas fa-file-contract"></i> Terms of Service</a>
-        <a href="{{ url_for('static', filename='privacy_policy.html') }}"><i class="fas fa-shield-alt"></i> Privacy Policy</a>
+        <a href="{{ url_for('terms') }}">Terms of Service</a>
+        <a href="{{ url_for('privacy') }}">Privacy Policy</a>
 
         <!-- Sign Out Button
         <div class="sign-out-container">
@@ -47,8 +47,9 @@
             <div class="terms">
                 <input type="checkbox" id="terms-checkbox" name="terms_agreed" required>
                 <label for="terms-checkbox">You must check the agreement box in order to proceed. By submitting data, you are agreeing to the 
-                    <a href="terms_of_service.html"><i class="fas fa-file-contract"></i> Terms of Service</a>
-                    <a href="privacy_policy.html"><i class="fas fa-shield-alt"></i> Privacy Policy</a>
+                    <a href="{{ url_for('terms') }}">Terms of Service</a>
+                    &
+                    <a href="{{ url_for('privacy') }}">Privacy Policy</a>
                 </label>
             </div>
         </form>
